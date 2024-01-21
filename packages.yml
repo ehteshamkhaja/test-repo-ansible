@@ -1,0 +1,29 @@
+---
+- hosts: appserver
+  gather_facts: yes
+#  become_method: sudo
+  become: yes
+  tasks:
+    - name: Update the yum repo
+      yum:
+        name: '*'
+        state: latest
+
+
+    - name: Install the apache server using httpd
+      yum:
+        name: 'httpd'
+        state: latest
+
+
+    - name: Configure the httpd index.html
+      lineinfile:
+        path: /var/www/html/index.html
+        line: This is a webpage using Ansible
+      become_user: root
+
+    - name: Start the apache service
+      systemd:
+        name: httpd
+        state: started
+      become_user: root
