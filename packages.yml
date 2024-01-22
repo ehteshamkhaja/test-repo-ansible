@@ -20,8 +20,8 @@
       lineinfile:
         path: /var/www/html/index.html
         line: This is a webpage using Ansible
-      become_user: root
-
+      become_user: root  
+    
     - name: Start the apache service
       systemd:
         name: httpd
