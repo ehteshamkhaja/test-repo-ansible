@@ -16,14 +16,3 @@
         state: latest
 
 
- #   - name: Configure the httpd index.html
- #     lineinfile:
- #       path: /var/www/html/index.html
- #       line: This is a webpage using Ansible
- #     become_user: root
-
-  ##  - name: Start the apache service
-   #   systemd:
-   #     name: httpd
-   #     state: started
-   #   become_user: root
